@@ -3,19 +3,18 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-
+    
+    <!-- include the web_components polyfills with support for Dart. -->
     <script src="packages/web_components/platform.js"></script>
     <script src="packages/web_components/dart_support.js"></script>
 
     <link rel="import" href="app/finance_app.html">
-
-    <script type='application/dart'> export 'package:polymer/init.dart'; </script>
-    <script src="packages/browser/dart.js"></script>
-
 </head>
 <body fullbleed vertical layout unresolved>
 
-    <finance-app flex></finance-app>
+   <finance-app flex></finance-app>
 
+   <script type='application/dart'>export 'package:polymer/init.dart';</script>
+   <script src="packages/browser/dart.js"></script>
 </body>
 </html>

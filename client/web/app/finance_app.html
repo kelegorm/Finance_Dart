@@ -1,8 +1,26 @@
 <link rel="import" href="../packages/polymer/polymer.html">
+<link rel="import" href="../packages/core_elements/core_header_panel.html">
+<link rel="import" href="../packages/core_elements/core_toolbar.html">
+<link rel="import" href="../packages/paper_elements/paper_icon_button.html">
+<link rel="import" href="../packages/core_elements/core_icons.html">
+<link rel="import" href="view/itemList/item_list.html">
 
 <polymer-element name="finance-app" vertical layout>
     <template>
-        <p>Hi there!</p>
+        <core-header-panel flex mode="standard">
+            <core-toolbar>
+                Finance
+            </core-toolbar>
+            <div flex vertical layout>
+                <div self-end>
+                    <paper-icon-button icon="view-headline"></paper-icon-button>
+                    <paper-icon-button icon="view-stream"></paper-icon-button>
+                </div>
+                <div flex horizontal center-justified layout>
+                    <item-list dataProvider="{{purchases}}"></item-list>
+                </div>
+            </div>
+        </core-header-panel>
     </template>
 
     <script type="application/dart" src="finance_app.dart"></script>

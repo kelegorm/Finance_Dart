@@ -1,8 +1,9 @@
-name: Finance-Dart-
-version: 0.0.1
-description: A sample web application
+name: Finance
+description: A sample Polymer application
 dependencies:
-  browser: any
-  polymer: any
-dev_dependencies:
-#  unittest: any
+  polymer: '>=0.12.0 <0.13.0'
+  core_elements: any
+  paper_elements: any
+transformers:
+- polymer:
+    entry_points: web/app.html
