@@ -1,18 +1,18 @@
 <link rel="import" href="../../../packages/polymer/polymer.html">
+<link rel="import" href="purchase_renderer.html">
 
 <polymer-element name="item-list">
     <template>
         <style>
             :host {
                 max-width: 200px;
+                width: 100%;
             }
         </style>
 
         <div flex vertical layout>
             <template repeat="{{purchase in dataProvider}}">
-                <div>
-                    {{purchase.good}}
-                </div>
+                <purchase-renderer data="{{purchase}}"></purchase-renderer>
             </template>
         </div>
 

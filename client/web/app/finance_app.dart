@@ -8,11 +8,11 @@ class FinanceApp extends PolymerElement {
   @observable
   List<Purchase> purchases;
 
+  DataSource _dataSource;
+
   FinanceApp.created() : super.created() {
-    purchases = [
-      new Purchase('Milk', 39, new DateTime.now(), null),
-      new Purchase('Rice', 56, new DateTime.now(), null),
-      new Purchase('Lemonade', 35, new DateTime.now(), null)
-    ];
+    _dataSource = new DataSource();
+
+    purchases = _dataSource.getItems();
   }
 }
