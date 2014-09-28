@@ -3,7 +3,7 @@
 <link rel="import" href="../packages/core_elements/core_toolbar.html">
 <link rel="import" href="../packages/paper_elements/paper_icon_button.html">
 <link rel="import" href="../packages/core_elements/core_icons.html">
-<link rel="import" href="view/itemList/item_list.html">
+<link rel="import" href="view/item_list/item_list.html">
 
 <polymer-element name="finance-app" vertical layout>
     <template>
@@ -16,8 +16,19 @@
                     <paper-icon-button icon="view-headline"></paper-icon-button>
                     <paper-icon-button icon="view-stream"></paper-icon-button>
                 </div>
+                <div id="addPurchaseForm" horisontal layout>
+                    <input type="text" placeholder="good" value="{{newPurchaseText}}">
+                    <input type="number" placeholder="price" value="{{newPurchasePrice}}">
+                    <paper-button label="Add" role="button" on-click="{{addPurchaseButton_click}}"></paper-button>
+                </div>
                 <div flex horizontal center-justified layout>
-                    <item-list dataProvider="{{purchases}}"></item-list>
+                    <item-list purchases="{{purchases}}"></item-list>
+
+                    <div vertical layout>
+                        <template repeat="{{purchase in purchases}}">
+                            <purchase-renderer data="{{purchase}}"></purchase-renderer>
+                        </template>
+                    </div>
                 </div>
             </div>
         </core-header-panel>

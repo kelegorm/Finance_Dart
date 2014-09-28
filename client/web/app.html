@@ -6,6 +6,7 @@
     
     <!-- include the web_components polyfills with support for Dart. -->
     <script src="packages/web_components/platform.js"></script>
+    <!-- turn on polymer library (BEFORE any html import) -->
     <script src="packages/web_components/dart_support.js"></script>
 
     <link rel="import" href="app/finance_app.html">
@@ -15,6 +16,5 @@
    <finance-app flex></finance-app>
 
    <script type='application/dart'>export 'package:polymer/init.dart';</script>
-   <script src="packages/browser/dart.js"></script>
 </body>
 </html>
