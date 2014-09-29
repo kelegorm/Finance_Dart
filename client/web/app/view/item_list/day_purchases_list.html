@@ -1,0 +1,24 @@
+<link rel="import" href="../../../packages/polymer/polymer.html">
+<link rel="import" href="purchase_renderer.html">
+
+<polymer-element name="day-purchases-list">
+    <template>
+        <style>
+            :host {
+                max-width: 200px;
+                width: 100%;
+                padding-bottom: 10px;
+            }
+        </style>
+        
+        {{dayLabel}}
+
+        <div flex vertical layout>
+            <template repeat="{{purchase in data.items}}">
+                <purchase-renderer data="{{purchase}}"></purchase-renderer>
+            </template>
+        </div>
+
+    </template>
+    <script type="application/dart" src="day_purchases_list.dart"></script>
+</polymer-element>

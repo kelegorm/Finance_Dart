@@ -1,5 +1,5 @@
 <link rel="import" href="../../../packages/polymer/polymer.html">
-<link rel="import" href="purchase_renderer.html">
+<link rel="import" href="day_purchases_list.html">
 
 <polymer-element name="item-list">
     <template>
@@ -11,8 +11,8 @@
         </style>
 
         <div flex vertical layout>
-            <template repeat="{{purchase in dataProvider}}">
-                <purchase-renderer data="{{purchase}}"></purchase-renderer>
+            <template repeat="{{dayPurchases in dataProvider}}">
+                <day-purchases-list data="{{dayPurchases}}"></day-purchases-list>
             </template>
         </div>
 

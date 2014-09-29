@@ -8,8 +8,6 @@ class PurchaseRenderer extends PolymerElement {
   @published
   Purchase data;
 
-  PurchaseRenderer.created() : super.created() {
-
-  }
+  PurchaseRenderer.created() : super.created();
 
 }
