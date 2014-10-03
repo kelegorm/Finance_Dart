@@ -3,6 +3,7 @@ import 'package:polymer/polymer.dart';
 import 'itemListModel.dart';
 
 import '../../dateTimeUtils/dateTimeUtils.dart';
+import '../../model/index.dart';
 
 @CustomTag('day-purchases-list')
 class DayPurchasesList extends PolymerElement{
@@ -13,12 +14,16 @@ class DayPurchasesList extends PolymerElement{
   void set data(DayPurchases value) {
     _data = value;
     dayLabel = getDayLabel(value.day);
+    total = calcTotal(_data.items);
   }
   @published
   DayPurchases get data => _data;
   
   @observable
   String dayLabel;
+  
+  @observable
+  num total;
   
   
   DayPurchasesList.created() : super.created();
@@ -30,5 +35,14 @@ class DayPurchasesList extends PolymerElement{
     String month = getFullMonthName(date);
     
     return '$month ${date.day}$year';
+  }
+  
+  num calcTotal(List<Purchase> data) {
+    num result = 0;
+    for (Purchase item in data) {
+      result += item.price;
+    }
+    
+    return result;
   }
 }

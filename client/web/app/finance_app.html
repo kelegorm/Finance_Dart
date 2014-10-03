@@ -4,7 +4,6 @@
 <link rel="import" href="../packages/paper_elements/paper_icon_button.html">
 <link rel="import" href="../packages/core_elements/core_icons.html">
 <link rel="import" href="view/item_list/item_list.html">
-<link rel="import" href="view/item_list/purchase_renderer.html">
 
 <polymer-element name="finance-app" vertical layout>
     <template>
@@ -23,15 +22,9 @@
                     <paper-button label="Add" role="button" on-click="{{addPurchaseButton_click}}"></paper-button>
                 </div>
                 <br>
-                <div flex horizontal around-justified layout>
-                    <item-list purchases="{{purchases}}"></item-list>
-
-                    <div vertical layout>
-                        <template repeat="{{purchase in purchases}}">
-                            <purchase-renderer data="{{purchase}}"></purchase-renderer>
-                        </template>
-                    </div>
-                </div>
+                
+                <item-list purchases="{{purchases}}"></item-list>
+                
             </div>
         </core-header-panel>
     </template>
