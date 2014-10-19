@@ -1,0 +1,42 @@
+<link rel="import" href="../packages/polymer/polymer.html">
+<link rel="import" href="../packages/paper_elements/paper_input.html">
+<link rel="import" href="../packages/paper_elements/paper_button.html">
+<link rel="import" href="../packages/paper_elements/paper_shadow.html">
+
+<polymer-element name="signup-form">
+    <template>
+        <style>
+            .loginWindow {
+                margin-top: -40px;
+                padding-bottom: 16px;
+                background: #ffffff;
+            }
+            .loginForm{
+                padding: 24px 24px 12px 24px;
+            }
+            .loginForm header {
+                font-size: x-large;
+                padding-bottom: 12px;
+            }
+            .loginWindow .buttons {
+                padding: 0 16px;
+            }
+        </style>
+
+        <div class="loginWindow" vertical layout>
+            <div class="loginForm" vertical layout>
+                <header self-center>Sign up now!</header>
+                <paper-input type="email" placeholder="email" require autofocus></paper-input>
+                <paper-input type="password" placeholder="password"></paper-input>
+            </div>
+            <div class="buttons" horizontal layout>
+                <paper-button>Sign up</paper-button>
+                <span flex></span>
+                <paper-button>Log in</paper-button>
+            </div>
+            <paper-shadow z="2"></paper-shadow>
+        </div>
+    </template>
+
+    <script type="application/dart" src="signup_form.dart"></script>
+</polymer-element>
