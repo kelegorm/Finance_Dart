@@ -62,7 +62,7 @@ class MyCollection {
   }
 }
 
-class DayPurchases {
+class DayPurchases extends Observable {
   DateTime day;
   
   @observable

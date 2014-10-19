@@ -1,8 +1,9 @@
 <link rel="import" href="../packages/polymer/polymer.html">
 <link rel="import" href="../packages/core_elements/core_header_panel.html">
 <link rel="import" href="../packages/core_elements/core_toolbar.html">
-<link rel="import" href="../packages/paper_elements/paper_icon_button.html">
 <link rel="import" href="../packages/core_elements/core_icons.html">
+<link rel="import" href="../packages/paper_elements/paper_icon_button.html">
+<link rel="import" href="../packages/paper_elements/paper_input.html">
 <link rel="import" href="view/item_list/item_list.html">
 
 <polymer-element name="finance-app" vertical layout>
@@ -17,9 +18,9 @@
                     <paper-icon-button icon="view-stream"></paper-icon-button>
                 </div>
                 <div self-center id="addPurchaseForm" horisontal layout>
-                    <input type="text" placeholder="good" value="{{newPurchaseText}}">
-                    <input type="number" placeholder="price" value="{{newPurchasePrice}}">
-                    <paper-button label="Add" role="button" on-click="{{addPurchaseButton_click}}"></paper-button>
+                    <paper-input  type="text" floatingLabel="true" placeholder="Good" value="{{newPurchaseText}}"></paper-input>
+                    <paper-input type="number" floatingLabel="true" placeholder="price" value="{{newPurchasePrice}}"></paper-input>
+                    <paper-button label="Add" role="button" on-click="{{addPurchaseButton_click}}" raised></paper-button>
                 </div>
                 <br>
                 

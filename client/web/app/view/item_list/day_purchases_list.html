@@ -5,31 +5,48 @@
     <template>
         <style>
             :host {
-              margin-bottom: 10px;
+              margin-bottom: 40px;
             }
             :host :last-child {
               margin-bottom: 0;
             }
+
+            .dateRenderer {
+                font-size: x-large;
+                padding: 0 20px;
+            }
+
+            .purchasesList {
+                max-width: 350px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
             
-            
+            .totalRenderer {
+                font-size: larger;
+                padding-left:20px;
+                padding-right:10px;
+                text-decoration: underline;
+            }
+
             purchase-renderer {
-              border-bottom: 1px dashed;
+              border-bottom: 1px dashed rgba(0,0,0,.1);
             }
             purchase-renderer:last-child {
               border-bottom: none;
             }
         </style>
         
-        <div flex horizontal layout>
-            <div>{{dayLabel}}</div>
+        <div flex horizontal center-justified layout>
+            <div self-center class="dateRenderer">{{dayLabel}}</div>
             
-            <div flex vertical layout>
+            <div flex self-end vertical layout class="purchasesList">
                 <template repeat="{{purchase in data.items}}">
                     <purchase-renderer data="{{purchase}}"></purchase-renderer>
                 </template>
             </div>
             
-            <div>total: {{total}}</div>  
+            <div self-end class="totalRenderer">{{total}}</div>
               
         </div>
     </template>
