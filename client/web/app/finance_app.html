@@ -2,6 +2,7 @@
 <link rel="import" href="../packages/core_elements/core_header_panel.html">
 <link rel="import" href="../packages/core_elements/core_toolbar.html">
 <link rel="import" href="../packages/core_elements/core_icons.html">
+<link rel="import" href="../packages/paper_elements/paper_button.html">
 <link rel="import" href="../packages/paper_elements/paper_icon_button.html">
 <link rel="import" href="../packages/paper_elements/paper_input.html">
 <link rel="import" href="view/item_list/item_list.html">
@@ -20,7 +21,7 @@
                 <div self-center id="addPurchaseForm" horisontal layout>
                     <paper-input  type="text" floatingLabel="true" placeholder="Good" value="{{newPurchaseText}}"></paper-input>
                     <paper-input type="number" floatingLabel="true" placeholder="price" value="{{newPurchasePrice}}"></paper-input>
-                    <paper-button label="Add" role="button" on-click="{{addPurchaseButton_click}}" raised></paper-button>
+                    <paper-button role="button" on-click="{{addPurchaseButton_click}}" raised>Add</paper-button>
                 </div>
                 <br>
                 
