@@ -23,19 +23,25 @@
             }
         </style>
 
-        <div class="loginWindow" vertical layout>
+        <form id="form" on-submit="{{form_onSubmit}}" class="loginWindow" vertical layout>
             <div class="loginForm" vertical layout>
                 <header self-center>Welcome back!</header>
-                <paper-input type="email" placeholder="email" require autofocus></paper-input>
-                <paper-input type="password" placeholder="password"></paper-input>
+                <paper-input id="emailInput" type="email" value="{{email}}"
+                             placeholder="email" name="email"
+                             require autofocus></paper-input>
+
+                <paper-input id="passwordInput" type="password" value="{{password}}"
+                             placeholder="password"
+                             name="password" require></paper-input>
             </div>
             <div class="buttons" horizontal layout>
                 <paper-button>Sign up</paper-button>
                 <span flex></span>
-                <paper-button>Log in</paper-button>
+                <paper-button type="submit" on-click="{{submitButton_onClick}}">Log in</paper-button>
+                <input type="submit" />
             </div>
             <paper-shadow z="2"></paper-shadow>
-        </div>
+        </form>
     </template>
 
     <script type="application/dart" src="signin_form.dart"></script>
