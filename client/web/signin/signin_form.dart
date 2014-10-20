@@ -13,7 +13,7 @@ class SigninForm extends PolymerElement {
   String email = '123@123.com';
 
   @observable
-  String password = '1234';
+  String password = '123';
 
   FormElement elForm;
   PaperInput emailInput;
@@ -69,7 +69,7 @@ class SigninForm extends PolymerElement {
       formData.append('password', password);
       HttpRequest.request('/signin', method: 'POST', sendData: formData)
       .then((HttpRequest request) {
-        //todo go to application page
+        window.location.href = '/app';
       })
       .catchError(_catchHttpErrors)
       .catchError(_catchErrors);
@@ -90,7 +90,7 @@ class SigninForm extends PolymerElement {
   }
 
   void _catchErrors(Event event) {
-    print(event.type);
+    print(event);
   }
 
   void _showMessage(String message) {
