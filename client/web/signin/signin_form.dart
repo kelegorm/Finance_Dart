@@ -1,4 +1,5 @@
 import 'dart:html';
+import 'dart:convert';
 
 import 'package:polymer/polymer.dart';
 
@@ -8,10 +9,10 @@ import 'package:paper_elements/paper_input.dart';
 class SigninForm extends PolymerElement {
 
   @observable
-  String email = 'wert';
+  String email = '123@123.com';
 
   @observable
-  String password = 'qqq';
+  String password = '123';
 
   FormElement elForm;
   PaperInput emailInput;
@@ -60,7 +61,17 @@ class SigninForm extends PolymerElement {
 
   void _checkAndSendForm() {
     if (_checkAndSubmit() == true) {
-      print('All right, sending...');
+      FormData formData = new FormData();
+      formData.append('email', email);
+      formData.append('password', password);
+      HttpRequest.request('/signin', method: 'POST', sendData: formData)
+      .then((HttpRequest request) {
+        //todo go to application page
+      })
+      .catchError((error) {
+
+        print(error);
+      });
     }
   }
 }
