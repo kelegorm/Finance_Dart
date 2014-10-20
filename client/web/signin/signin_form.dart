@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:polymer/polymer.dart';
 
 import 'package:paper_elements/paper_input.dart';
+import 'package:paper_elements/paper_toast.dart';
 
 @CustomTag('signin-form')
 class SigninForm extends PolymerElement {
@@ -12,11 +13,12 @@ class SigninForm extends PolymerElement {
   String email = '123@123.com';
 
   @observable
-  String password = '123';
+  String password = '1234';
 
   FormElement elForm;
   PaperInput emailInput;
   PaperInput passwordInput;
+  PaperToast messageDisplay;
 
 
   //------------------------
@@ -27,6 +29,7 @@ class SigninForm extends PolymerElement {
     elForm = $['form'];
     emailInput = $['emailInput'];
     passwordInput = $['passwordInput'];
+//    messageDisplay = $['messageDisplay'];
   }
 
 
@@ -68,10 +71,38 @@ class SigninForm extends PolymerElement {
       .then((HttpRequest request) {
         //todo go to application page
       })
-      .catchError((error) {
-
-        print(error);
-      });
+      .catchError(_catchHttpErrors)
+      .catchError(_catchErrors);
     }
+  }
+
+  void _catchHttpErrors(Event event) {
+    HttpRequest request = event.target as HttpRequest;
+    if (request == null) {
+      throw event;
+    }
+
+    if (request.status > 0) {
+      _showMessage(request.responseText);
+    } else {
+      _showMessage('Connection error');
+    }
+  }
+
+  void _catchErrors(Event event) {
+    print(event.type);
+  }
+
+  void _showMessage(String message) {
+    if (messageDisplay != null) {
+      messageDisplay.remove();
+    }
+
+    messageDisplay = new PaperToast();
+    messageDisplay.text = message;
+    messageDisplay.show();
+    shadowRoot.children.add(messageDisplay);
+
+    print(message);
   }
 }
