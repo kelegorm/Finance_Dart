@@ -18,10 +18,10 @@ class FinanceApp extends PolymerElement {
   //--------------------
   
   @observable
-  String newPurchaseText = '';
+  String newPurchaseText = 'ert';
 
   @observable
-  String newPurchasePrice = '';
+  String newPurchasePrice = '23';
 
   @observable
   ObservableList<Purchase> purchases;

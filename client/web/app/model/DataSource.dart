@@ -9,6 +9,9 @@ class DataSource {
     _items = new ObservableList<Purchase>();
   }
 
+  //------------------------------
+  //  P U B L I C   M E T H O D S
+  //------------------------------
 
   /**
    *  Init data source. Connecting to server
@@ -18,8 +21,12 @@ class DataSource {
   }
 
   void pushPurchase(Purchase newPurchase) {
-    _items.add(newPurchase);
+    HttpRequest.request('/purchase', method:'POST', sendData:newPurchase.toFormData())
+    .then((_){
+      _items.add(newPurchase);
+    });
   }
+
 
   //--------------------------------
   //  P R I V A T E   M E T H O D S
@@ -32,11 +39,12 @@ class DataSource {
     HttpRequest.request('/purchases')
     .then((HttpRequest request) {
       Map data = JSON.decode(request.response);
+      print(JSON.encode(data));
       _items.clear();
       for (Map item in data) {
         _items.add(new Purchase.fromMap(item));
+        print('iteration');
       }
-      print(data);
     })
     .catchError((error) {
       print(error);

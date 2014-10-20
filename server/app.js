@@ -19,6 +19,7 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, '../client/web')));
+//app.use(express.static(path.join(__dirname, '../client/build/web')));
 //app.use(express.static('localhost:8080'));
 
 

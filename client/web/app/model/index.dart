@@ -1,6 +1,6 @@
 library Model;
 
-import 'dart:html' show HttpRequest;
+import 'dart:html' show HttpRequest, FormData;
 import 'dart:convert' show JSON;
 import 'package:observe/observe.dart';
 

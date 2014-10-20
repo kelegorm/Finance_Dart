@@ -29,11 +29,25 @@ class Purchase {
       date = new DateTime.now();
     }
 
-    if (input.containsKey('tags')) {
-      tags = input['tags'];
-    } else {
-      tags = [];
+//    if (input.containsKey('tags')) {
+//      tags = input['tags'];
+//    } else {
+//      tags = [];
+//    }
+  }
+
+  FormData toFormData() {
+    FormData result = new FormData();
+
+    result.append('name', good);
+    result.append('price', price.toString());
+    result.append('date', date.toString());
+
+    if (tags != null) {
+      result.append('tags', tags.join(','));
     }
+
+    return result;
   }
   
   static int compareByDate(Purchase a, Purchase b) {

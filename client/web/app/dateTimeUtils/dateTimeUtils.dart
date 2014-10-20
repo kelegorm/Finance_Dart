@@ -55,5 +55,5 @@ List<String> _shortMonths = [
 ];
 
 String getFullMonthName(DateTime date) {
-  return (date != null) ? _months[date.month] : null; 
+  return (date != null) ? _months[date.month-1] : null;
 }

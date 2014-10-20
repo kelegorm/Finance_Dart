@@ -10,10 +10,10 @@ import 'package:paper_elements/paper_toast.dart';
 class SigninForm extends PolymerElement {
 
   @observable
-  String email = '123@123.com';
+  String email = '';
 
   @observable
-  String password = '123';
+  String password = '';
 
   FormElement elForm;
   PaperInput emailInput;
