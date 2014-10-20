@@ -35,6 +35,7 @@ class FinanceApp extends PolymerElement {
 
   FinanceApp.created() : super.created() {
     _dataSource = new DataSource();
+    _dataSource.connect();
 
     purchases = _dataSource.getItems();
   }
